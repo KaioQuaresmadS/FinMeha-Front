@@ -9,8 +9,6 @@ import { LoginComponent } from "./features/auth/components/login/login.component
   template: `
     <app-login />
     <app-register />
-    <app-root />
-
   `,
   // styleUrl: './app.component.scss'
 })

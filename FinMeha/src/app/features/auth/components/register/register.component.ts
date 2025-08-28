@@ -5,10 +5,11 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule} from '@angular
   selector: 'app-register',
   standalone: true,
   imports: [ReactiveFormsModule],
-  templateUrl: './register.component.html',
-  styleUrl: './register.component.scss'
+  templateUrl: 'register.component.html',
+  styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
+
   registerForm : FormGroup;
 
   constructor(private fb: FormBuilder){
