@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-private apiUrl = '';
+private apiUrl = 'https://finmehaapi-egf7acgkfehvgzar.canadacentral-01.azurewebsites.net/';
 
   constructor(private http: HttpClient) { }
 
