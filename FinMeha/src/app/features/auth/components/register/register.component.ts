@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { response } from 'express';
+import { error } from 'console';
 
 @Component({
   selector: 'app-register',
@@ -24,22 +25,10 @@ export class RegisterComponent {
   }
   onSubmit() :void{
     if(this.registerForm.valid){
-      this.authService.register(this.registerForm.value).subscribe((response)=> {
-        // Este bloco recebe o "sinal" da API
-        console.log("Registro bem-sucedido!", response);
-
-        if(response && response.token){
-          //Armazena o token na variável local do navegador
-          localStorage.setItem('auth_token', response.token);
-          console.log('Token armazenado:', response.token);
-          //Você pode adicionar uma navegação para outra página aqui
-        }
-      },
-      (error) => {
-        //Esse bloco lida com erros da API
-        console.error('Erro no registro!', error);
-        // Mostre uma mensagem de erro ao usuário
-      }
-    )}
+      this.authService.register(this.registerForm.value).subscribe({
+        next: (response) => console.log('Registro bem-sucedido!', response),
+        error: (error) => console.error('Erro no registro!', error)
+      });
+    }
   }
 }
